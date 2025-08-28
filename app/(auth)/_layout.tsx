@@ -10,8 +10,6 @@ import {
 import React from "react";
 import { Slot } from "expo-router";
 import { images } from "@/constants";
-import CustomInput from "@/components/CustomInput";
-import CustomButton from "@/components/CustomButton";
 
 export default function _layout() {
   return (
