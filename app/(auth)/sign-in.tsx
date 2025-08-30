@@ -1,9 +1,10 @@
 import { View, Text, Alert } from "react-native";
-import { useState } from "react";
 import { Link, router } from "expo-router";
 import CustomInput from "@/components/CustomInput";
 import CustomButton from "@/components/CustomButton";
+import { useState } from "react";
 import { signIn } from "@/lib/appwrite";
+import * as Sentry from "@sentry/react-native";
 
 const SignIn = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -15,7 +16,7 @@ const SignIn = () => {
     if (!email || !password)
       return Alert.alert(
         "Error",
-        "Please enter valid email address and password"
+        "Please enter valid email address & password."
       );
 
     setIsSubmitting(true);
@@ -26,6 +27,7 @@ const SignIn = () => {
       router.replace("/");
     } catch (error: any) {
       Alert.alert("Error", error.message);
+      Sentry.captureEvent(error);
     } finally {
       setIsSubmitting(false);
     }
@@ -40,7 +42,6 @@ const SignIn = () => {
         label="Email"
         keyboardType="email-address"
       />
-
       <CustomInput
         placeholder="Enter your password"
         value={form.password}
@@ -57,7 +58,6 @@ const SignIn = () => {
         <Text className="base-regular text-gray-100">
           {`Don't have an account?`}
         </Text>
-
         <Link href="/sign-up" className="base-bold text-primary">
           Sign Up
         </Link>

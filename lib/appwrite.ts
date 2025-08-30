@@ -13,7 +13,9 @@ export const appwriteConfig = {
   platform: "com.rp.androidapps",
   projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID!,
   databaseId: process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID!,
-  userCollectionId: process.env.EXPO_PUBLIC_APPWRITE_COLLECTION_ID!,
+  userCollectionId: process.env.EXPO_PUBLIC_APPWRITE_USER_COLLECTION_ID!,
+  categoriesCollectionId:
+    process.env.EXPO_PUBLIC_APPWRITE_CATEGORIES_COLLECTION_ID!,
 };
 
 export const client = new Client();
