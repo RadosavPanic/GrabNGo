@@ -1,4 +1,4 @@
-import { View, Text, FlatList, TouchableOpacity, Platform } from "react-native";
+import { Text, FlatList, TouchableOpacity, Platform } from "react-native";
 import { useState } from "react";
 import { useLocalSearchParams, router } from "expo-router";
 import { Category } from "@/type";
